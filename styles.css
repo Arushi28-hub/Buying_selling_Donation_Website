@@ -1,100 +1,366 @@
 /* General Styles */
 body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: #333;
-}
-
-/* Login Container */
-.login-container {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
-  animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    background: #f9f9f9;
+    transition: background 0.3s ease, color 0.3s ease;
   }
-  to {
+  
+  body.dark-mode {
+    background: #1a1a1a;
+    color: #f9f9f9;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  h1, h2, h3 {
+    color: #2c3e50;
+  }
+  
+  body.dark-mode h1,
+  body.dark-mode h2,
+  body.dark-mode h3 {
+    color: #f9f9f9;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #3498db;
+  }
+  
+  a:hover {
+    color: #2980b9;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: #fff;
+  }
+  
+  .btn-secondary {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: #fff;
+  }
+  
+  .btn-tertiary {
+    background: linear-gradient(135deg, #e67e22, #d35400);
+    color: #fff;
+  }
+  
+  .btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Dark Mode Toggle */
+  .dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  
+  .dark-mode-toggle i {
+    font-size: 24px;
+    color: #2c3e50;
+    transition: color 0.3s ease;
+  }
+  
+  body.dark-mode .dark-mode-toggle i {
+    color: #f9f9f9;
+  }
+  
+  /* Header */
+  header {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-weight: 700;
+  }
+  
+  header p {
+    margin: 10px 0 0;
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, #ecf0f1, #dfe6e9);
+    padding: 80px 0;
+    text-align: center;
+  }
+  
+  body.dark-mode .hero {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+  }
+  
+  .hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+  }
+  
+  body.dark-mode .hero h2 {
+    color: #f9f9f9;
+  }
+  
+  .hero .subheading {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #555;
+  }
+  
+  body.dark-mode .hero .subheading {
+    color: #ccc;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  /* Sections */
+  section {
+    padding: 80px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  section.visible {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Login Box */
-.login-box h1 {
-  margin-bottom: 20px;
-  font-size: 2rem;
-  color: #333;
-}
-
-.input-group {
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.input-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #555;
-}
-
-.input-group input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-.input-group input:focus {
-  border-color: #6a11cb;
-  outline: none;
-}
-
-button {
-  width: 100%;
-  padding: 12px;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-button:hover {
-  background: linear-gradient(135deg, #2575fc, #6a11cb);
-}
-
-.signup-link {
-  margin-top: 15px;
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.signup-link a {
-  color: #6a11cb;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.signup-link a:hover {
-  text-decoration: underline;
-}
+  
+  section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+  }
+  
+  body.dark-mode section h2 {
+    color: #f9f9f9;
+  }
+  
+  section p {
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  body.dark-mode section p {
+    color: #ccc;
+  }
+  
+  /* Listing Grid */
+  .listing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+  }
+  
+  .listing-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  body.dark-mode .listing-card {
+    background: #2c3e50;
+    border: 1px solid #444;
+  }
+  
+  .listing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  }
+  
+  .listing-card h3 {
+    margin: 15px 0 10px;
+    font-size: 1.3rem;
+    color: #2c3e50;
+  }
+  
+  body.dark-mode .listing-card h3 {
+    color: #f9f9f9;
+  }
+  
+  .listing-card p {
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  body.dark-mode .listing-card p {
+    color: #ccc;
+  }
+  
+  .listing-card strong {
+    color: #27ae60;
+  }
+  
+  /* Wishlist Section */
+  .wishlist-container {
+    margin-top: 30px;
+  }
+  
+  /* Reviews Section */
+  .reviews-container {
+    margin-top: 30px;
+  }
+  
+  .review-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  body.dark-mode .review-card {
+    background: #2c3e50;
+    border: 1px solid #444;
+  }
+  
+  .review-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    color: #2c3e50;
+  }
+  
+  body.dark-mode .review-card h3 {
+    color: #f9f9f9;
+  }
+  
+  .review-card p {
+    margin: 0;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  body.dark-mode .review-card p {
+    color: #ccc;
+  }
+  
+  /* Footer */
+  footer {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+  }
+  
+  body.dark-mode .modal-content {
+    background: #2c3e50;
+    color: #f9f9f9;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  body.dark-mode .close-btn {
+    color: #f9f9f9;
+  }
+  
+  .close-btn:hover {
+    color: #3498db;
+  }
+  
+  /* Form Styles */
+  form input,
+  form textarea,
+  form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  body.dark-mode form input,
+  body.dark-mode form textarea,
+  body.dark-mode form select {
+    background: #444;
+    border: 1px solid #666;
+    color: #f9f9f9;
+  }
+  
+  form input:focus,
+  form textarea:focus,
+  form select:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  form textarea {
+    height: 150px;
+  }
